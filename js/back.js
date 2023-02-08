@@ -90,9 +90,6 @@ var app = new Vue({
           Ware:'Bodega '+(Number(this.Warehouse)+1),
         });
         this.Total[this.Warehouse]+=Number(amount)
-        if (this.Ware === 0) {
-          console.log("es bodega 1")
-        }
         Calc_per(this.Percent[0], this.Percent[1]);
         
       }
@@ -118,14 +115,5 @@ var app = new Vue({
               (this.Warehouse + 1))
         : (this.Message = "");
     },
-    sum_sry(Buy){
-      let sum = 0;
-      this.Sales.map(elt => {
-          if(elt.Weight==Buy){
-              sum += elt.Buy
-          }
-      })
-      return sum;
-  },
   },
 });
