@@ -73,14 +73,14 @@ var app = new Vue({
         ? (amount = amount / 2.20462)
         : (amount = this.Amount);
       if (this.Whi[this.Warehouse] - amount < 0) {
-        swal("","Cantidad excedida, la cantidad de la bodega es: " + this.Whi[this.Warehouse], "error");
+        swal("","Cantidad excedida, la cantidad de la bodega es: "+ this.Whi[this.Warehouse], "error");
         this.Message = "cantidad excedida";
       } else {
         this.Whi[this.Warehouse] = this.Whi[this.Warehouse] - amount;
         this.Percent[this.Warehouse] =
           (this.Whi[this.Warehouse] * 100) /
           JSON.parse(localStorage.getItem("Warehouse"))[this.Warehouse];
-        this.Sales.push({
+          this.Sales.push({
           Ware: this.Warehouse,
           Buy: amount,
         });
@@ -90,11 +90,9 @@ var app = new Vue({
       this.Percent[this.Warehouse] <= 50
         ? this.Percent[this.Warehouse] <= 10
           ? 
-          swal("Error de almacenamiento","el almacenamiento es inferior al 10% para la bodega " +
-          (this.Warehouse + 1)+", la cantidad de arroz es de : " + this.Whi[this.Warehouse]): 
+          swal("Error de almacenamiento","el almacenamiento es inferior al 10% para la bodega " + ", la cantidad de arroz es de : " + this.Whi[this.Warehouse]): 
       
-      swal("Error de almacenamiento","el almacenamiento es inferior al 50% para la bodega " +
-      (this.Warehouse + 1) + ", la cantidad de arroz es de : " + this.Whi[this.Warehouse]):
+      swal("Error de almacenamiento","el almacenamiento es inferior al 50% para la bodega " + ", la cantidad de arroz es de : " + this.Whi[this.Warehouse]):
 
        (this.Message = "");
 
