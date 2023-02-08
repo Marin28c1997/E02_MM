@@ -63,20 +63,19 @@
 
     </div>
 
-    <table class="table_">
-      <thead>
+    <table>
           <tr>
-              <th>Peso</th>
+              <th>Bodega</th>
+              <th>Cantidad</th>
               <th>Cantidad</th>
           </tr>
-      </thead>
-      <tbody>
-          <tr  style="color: blue;" class="list-group-item" v-for="(user, index) in Sales" :key="index">
+          <tr  v-for="(user, index) in Sales" :key="index">
               
               <td>{{user.Ware}}</td>
               <td>{{user.Buy}}</td>
+              <td>{{user.Weight}}</td>
           </tr>
-      </tbody>
+
   
   </table>
   

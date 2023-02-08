@@ -80,13 +80,15 @@ var app = new Vue({
         this.Percent[this.Warehouse] =
           (this.Whi[this.Warehouse] * 100) /
           JSON.parse(localStorage.getItem("Warehouse"))[this.Warehouse];
-          this.Sales.push({
+        this.Sales.push({
           Ware: this.Warehouse,
           Buy: amount,
+          pw: this.Weight,
         });
         Calc_per(this.Percent[0], this.Percent[1]);
+      
       }
-
+     
       this.Percent[this.Warehouse] <= 50
         ? this.Percent[this.Warehouse] <= 10
           ? 
