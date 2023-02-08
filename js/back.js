@@ -59,6 +59,7 @@ var app = new Vue({
     asd: 50 + "%",
     Percent: [100, 100],
     Sales: [],
+    cntv: [],
     Whi: [
       JSON.parse(localStorage.getItem("Warehouse"))[0],
       JSON.parse(localStorage.getItem("Warehouse"))[1],
@@ -72,6 +73,7 @@ var app = new Vue({
         : this.Weight == "Libra"
         ? (amount = amount / 2.20462)
         : (amount = this.Amount);
+        
       if (this.Whi[this.Warehouse] - amount < 0) {
         swal("","Cantidad excedida, la cantidad de la bodega es: "+ this.Whi[this.Warehouse], "error");
         this.Message = "cantidad excedida";
@@ -80,13 +82,18 @@ var app = new Vue({
         this.Percent[this.Warehouse] =
           (this.Whi[this.Warehouse] * 100) /
           JSON.parse(localStorage.getItem("Warehouse"))[this.Warehouse];
+          
         this.Sales.push({
-          Ware: this.Warehouse,
+          TypeW: this.Weight,
           Buy: amount,
-          pw: this.Weight,
+          Ware:this.Warehouse,
         });
+
+        if (this.Ware === 0) {
+          console.log("es bodega 1")
+        }
         Calc_per(this.Percent[0], this.Percent[1]);
-      
+        
       }
      
       this.Percent[this.Warehouse] <= 50
@@ -110,5 +117,14 @@ var app = new Vue({
               (this.Warehouse + 1))
         : (this.Message = "");
     },
+    sum_sry(Buy){
+      let sum = 0;
+      this.Sales.map(elt => {
+          if(elt.Weight==Buy){
+              sum += elt.Buy
+          }
+      })
+      return sum;
+  },
   },
 });
