@@ -64,6 +64,7 @@ var app = new Vue({
       JSON.parse(localStorage.getItem("Warehouse"))[0],
       JSON.parse(localStorage.getItem("Warehouse"))[1],
     ],
+    Total:[0,0],
   },
   methods: {
     Buy() {
@@ -86,9 +87,9 @@ var app = new Vue({
         this.Sales.push({
           TypeW: this.Weight,
           Buy: amount,
-          Ware:this.Warehouse,
+          Ware:'Bodega '+(Number(this.Warehouse)+1),
         });
-
+        this.Total[this.Warehouse]+=Number(amount)
         if (this.Ware === 0) {
           console.log("es bodega 1")
         }

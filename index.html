@@ -65,13 +65,10 @@
 
     <table>
           <tr>
-              <th>Peso</th>
               <th>Cantidad (kg)</th>
               <th>Bodega</th>
           </tr>
           <tr  v-for="(user, index) in Sales" :key="index">
-              
-              <td>{{user.TypeW}}</td>
               <td>{{user.Buy}}</td>
               <td>{{user.Ware}}</td>
           
@@ -87,12 +84,12 @@
     </tr>
     <tr>
         <td>Bodega 1</td>
-        <td>{{sum_sry("Sales")}}</td>
+        <td>{{Total[0]}}</td>
     </tr>
     
     <tr>
       <td>Bodega 2</td>
-      <td>{{sum_sry("Sales")}}</td>
+      <td>{{Total[1]}}</td>
   </tr>
   </table>
   
